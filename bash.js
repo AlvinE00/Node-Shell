@@ -4,11 +4,13 @@ const ls = require('./ls');
 const cat = require('./cat');
 const date = require('./date');
 const echo = require('./echo');
+const head = require('./head');
+const tail = require('./tail');
 // The stdin 'data' event fires after a user types in a line
 // pwd();
 // ls();
-process.stdout.write('prompt > ');
 
+process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
 	const cmd = data.toString().trim(); //remove the newline
 	if (cmd === 'ls') {
@@ -25,6 +27,12 @@ process.stdin.on('data', (data) => {
 	}
 	if (cmd.split(' ')[0] === 'echo') {
 		echo(done, cmd);
+	}
+	if (cmd.split(' ')[0] === 'head') {
+		head(done, cmd.split(' ')[1]);
+	}
+	if (cmd.split(' ')[0] === 'tail') {
+		tail(done, cmd.split(' ')[1]);
 	}
 });
 
