@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (string) => {
+module.exports = (done, string) => {
 	// console.log(string);
 	// console.log(string.split(' '));
 	if (string.split(' ')[0] === 'cat') {
@@ -8,8 +8,7 @@ module.exports = (string) => {
 			if (err) {
 				throw err;
 			}
-			process.stdout.write(data);
-			process.stdout.write('prompt > ');
+			done(data);
 		});
 	}
 };

@@ -13,11 +13,9 @@
 
 // };
 
-module.exports = (cmd) => {
-	if (cmd === 'pwd') {
-		process.stdout.write(process.cwd());
-		// } else {
-		// 	process.stdout.write('You typed: ' + cmd);
-		// }
-	}
+module.exports = (done) => {
+	done(process.cwd());
+	// } else {
+	// 	process.stdout.write('You typed: ' + cmd);
+	// }
 };
